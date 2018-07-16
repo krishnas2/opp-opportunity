@@ -1,0 +1,32 @@
+<aura:component  implements="force:appHostable">
+    <aura:attribute name="Opportunity" type="Opportunity"/>
+    <aura:attribute name="OpportunityId" type="Opportunity.Id" default="{!v.Opportunity.Id}"/>
+    <aura:registerEvent name="EditOpty" type="c:EditOpty"/>
+	    <tr> 
+            <td>
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <span class="slds-checkbox">
+                            <input type="checkbox" actionType="NewOptyProduct" class="SelectOpty" onclick="{!c.EditOpp}" name="{!v.Opportunity.Id}" id="{!v.Opportunity.Id}" value="{!v.Opportunity.Id}" />
+                            <label class="slds-checkbox__label" for="{!v.Opportunity.Id}">
+                                <span class="slds-checkbox_faux"></span>
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </td>
+            <td><div class="slds-truncate" title="{!v.Opportunity.Name}">{!v.Opportunity.Name}</div></td>
+            <td><div class="slds-truncate" title="{!v.Opportunity.Probability}">{!v.Opportunity.Probability}</div></td>
+            <td><div class="slds-truncate" title="{!v.Opportunity.AccountId}">{!v.Opportunity.AccountId}</div></td>
+            <td><div class="slds-truncate" title="{!v.Opportunity.StageName}">{!v.Opportunity.StageName}</div></td>
+            <td><div class="slds-truncate" title="{!v.Opportunity.CreatedDate}">{!v.Opportunity.CreatedDate}</div></td>
+            <td><div class="slds-truncate" title="{!'Edit '+v.Opportunity.Name}">
+                <lightning:button value="{!v.Opportunity.Id}" iconName="utility:edit" 
+                                  iconPosition="left"
+                                  onclick="{!c.EditOpp}"
+                                  />
+                <!--lightning:icon value="{!v.Opportunity.Id}" iconName="utility:edit" iconPosition="left" variant="destructive" size="xx-small" onclick="{!c.EditOpp}"/-->
+                </div>
+            </td>
+    	</tr>
+</aura:component>

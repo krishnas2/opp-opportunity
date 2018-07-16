@@ -1,0 +1,20 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="OptyLightningController">
+	 <aura:attribute name="Opportunities" type="Opportunity[]"/>
+    <aura:attribute name="FilterName" type="String" default="MyOptyList"/>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="OptyListFilterChange" action="{!c.doInit}" event="c:OptyListFilterChange"/>
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.handleSaveSuccess}"/>
+    
+    <!--lightning:listView aura:id="listViewOpportunitiess"
+                    objectApiName="Opportunity"
+                    listName="MyOpportunities"
+                    rows="5"
+                    showActionBar="true"
+                    enableInlineEdit="true"
+                    showRowLevelActions="true"
+                /-->
+    <lightning:layoutItem padding="around-small">
+    	<c:OppListCMP Opportunities="{!v.Opportunities}"/>
+    </lightning:layoutItem>
+</aura:component>
